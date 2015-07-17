@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Samurai Zumbi</title>
+        <style type="text/css">
+            body{
+
+                padding-left: 300px;
+
+                padding-top: 50px;
+            }
+
+            canvas {
+              border: 1px solid #000000;
+              background-color:#000;
+
+              
+            }
+        </style>
+    </head>   
+    <body  onload="menuInicio()">
+        <canvas id="canvas" width="700" height="500">
+            Navegador não suporta HTML5
+        </canvas>
+        
+        <script type="text/javascript">
+
+
+
+            function menuInicio(){
+
+                 clearInterval(gameFps);
+                menu = true;
+                menuEscolha = 1;
+                canvas = document.getElementById("canvas");
+                context = canvas.getContext("2d");
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#######################################################################################################################",0,7);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#####################################################################################################################S",0,500);
+
+                var direita = 10;
+
+                while(direita < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",695,direita);
+
+                    direita += 10;
+
+
+                }
+
+                var esquerda = 10;
+
+                while(esquerda < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",0,esquerda);
+
+                    esquerda += 10;
+
+
+
+            }
+                
+                context.font = "40px Arial";
+                context.fillStyle = 'red';
+                context.fillText("Samurai Zumbi", 195, 160);
+
+                
+                context.font = "30px Arial";
+                context.fillStyle = 'green';
+                context.fillText("█Iniciar Jogo█████████████", 165, 280);
+
+                
+                context.font = "30px Arial";
+                context.fillStyle = 'green';
+                context.fillText("extras", 185, 320);
+                
+                context.font = "20px Arial";
+                context.fillStyle = 'white';
+                
+                
+                context.fillText("Movimentos: Esquerda - Direita - Espada [Espaço]", 50, 450);
+                context.fillText("Vidas :", 50, 480);
+                context.fillStyle = 'red';
+                context.fillText("&&&", 120, 480);
+
+
+                    document.addEventListener('keydown', keyMenu);
+
+
+
+        }
+
+        function keyMenu(e){
+
+
+                if(menu == true){
+                
+                if(e.keyCode == 38)
+                {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    
+                    menuEscolha = 1;
+
+                    context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#######################################################################################################################",0,7);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#####################################################################################################################S",0,500);
+
+                var direita = 10;
+
+                while(direita < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",695,direita);
+
+                    direita += 10;
+
+
+                }
+
+                var esquerda = 10;
+
+                while(esquerda < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",0,esquerda);
+
+                    esquerda += 10;
+
+
+
+            }
+                
+                context.font = "40px Arial";
+                context.fillStyle = 'red';
+                context.fillText("Samurai Zumbi", 195, 160);
+
+                
+                context.font = "30px Arial";
+                context.fillStyle = 'green';
+                context.fillText("█Iniciar Jogo█████████████", 165, 280);
+
+                
+                context.font = "30px Arial";
+                context.fillStyle = 'green';
+                context.fillText("extras", 185, 320);
+                
+                context.font = "20px Arial";
+                context.fillStyle = 'white';
+                
+                
+                context.fillText("Movimentos: Esquerda - Direita - Espada [Espaço]", 50, 450);
+                context.fillText("Vidas :", 50, 480);
+                context.fillStyle = 'red';
+                context.fillText("&&&", 120, 480);               
+                
+                
+                
+                }
+                
+                if(e.keyCode == 40)
+                {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    menuEscolha = 2;
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#######################################################################################################################",0,7);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#####################################################################################################################S",0,500);
+
+                var direita = 10;
+
+                while(direita < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",695,direita);
+
+                    direita += 10;
+
+
+                }
+
+                var esquerda = 10;
+
+                while(esquerda < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",0,esquerda);
+
+                    esquerda += 10;
+
+
+
+            }
+                
+                context.font = "40px Arial";
+                context.fillStyle = 'red';
+                context.fillText("Samurai Zumbi", 195, 160);
+
+                
+                context.font = "30px Arial";
+                context.fillStyle = 'green';
+                context.fillText("Iniciar Jogo", 185, 280);
+
+                
+                context.font = "30px Arial";
+                context.fillStyle = 'green';
+                context.fillText("█extras ████████████████", 165, 320);
+                
+                context.font = "20px Arial";
+                context.fillStyle = 'white';
+                
+                
+                context.fillText("Movimentos: Esquerda - Direita - Espada [Espaço]", 50, 450);
+                context.fillText("Vidas :", 50, 480);
+                context.fillStyle = 'red';
+                context.fillText("&&&", 120, 480);
+                    
+                }
+                
+                if(e.keyCode == 13)
+                {
+                    if(menuEscolha == 1){
+                      menu = false;
+                    inicializar();
+                  
+                    }
+                    
+                    if(menuEscolha == 2){
+                        
+                        extras();
+                  
+                    }
+                    
+                }
+                
+                }
+                
+                if(e.keyCode == 27)
+                {
+                    
+                    menuJogo();
+                    
+                }
+
+
+        }
+        
+            var gameFps;
+            var PersonagemLargura, jogadorPosicaoX, velocidadeJogador, PersonagemAltura, posicaogolpex;
+            var forachao = false;
+            var golpe = false;
+
+            zumbiFase1 = true;
+            zumbiFase2 = true;
+
+
+            gameover = false;
+
+            
+            function inicializar()
+            {   
+                
+                PersonagemAltura = 50;
+                PersonagemLargura = 50;
+            
+                
+                jogadorPosicaoX = 20;
+                jogadorPosicaoY = 470;
+                velocidadeJogador = 20;
+                saltojogador = 40;
+
+                posicaoChaoX= 208;
+
+
+                vida = 3;
+
+                zumbivida1 = 2;
+
+                zumbivida2 = 2;
+
+                //bosszumbi = 4;
+
+                indoZumbi = 209;
+
+                voltandoZumbi = 309;
+
+                indoZumbi2 = 409;
+
+                voltandoZumbi2 = 509;
+
+
+                velocidadeZumbi = 1;
+
+                velocidadeZumbi2 = 2;
+
+
+                volta = false;
+                volta2 = false;
+
+                fase = false;
+
+
+                
+                canvas = document.getElementById("canvas");
+                context = canvas.getContext("2d");
+                
+                
+                ///Listener de movimento
+                document.addEventListener('keydown', keyDown);
+                
+                //FPS
+                gameFps = setInterval(gameLoop, 30);
+
+                //FPS golpe
+                if (golpe == true) {
+                fpsGolpe = setInterval(loopGolpe,1000)
+                }
+
+            }
+            
+            function keyDown(e) 
+            {   
+            
+            // ESQUERDA E DIREITAAA ############
+                if(e.keyCode == 37)
+                {
+                    if(jogadorPosicaoX > 50)
+                    {
+                        jogadorPosicaoX -= velocidadeJogador;
+                        
+                        
+                    }
+                    
+                }
+                
+                if(e.keyCode == 39)
+                {
+                    if(jogadorPosicaoX < (canvas.width - PersonagemLargura))
+                    {
+                        jogadorPosicaoX += velocidadeJogador;
+
+                        
+                        
+                    }
+            
+
+                }
+
+                if (e.keyCode == 38) {
+
+                    if (jogadorPosicaoY > (canvas.height - PersonagemAltura) ) {
+
+                            jogadorPosicaoY -= saltojogador;
+
+
+                    }
+
+                }
+
+
+                if(golpe == false){
+                    if (e.keyCode == 32) {
+                    		duracaoEspada = 0;
+                            golpe = true
+
+                        }
+
+            }
+                
+                
+            }
+            
+            function gameLoop()
+            {       
+                //Limpa Tela
+
+                /*        
+
+      ▒▓▓▒░                                       
+      ░████▓░                                     
+       ▒█████░                                    
+     ░▒▓▒▓▒▓▒░                                    
+    ░█  ▒▓█                                       
+    ▓▒  ░ ░▓                                      
+    ▓░  ░  ░▓                                     
+    █▒  ▒█▓██░ ░░▓░                               
+    ▒██▓▒  ░███▓▓▓░                               
+▒▓▓▓▓▓██   ▒░                                     
+░░    ▓    ▒░                                     
+     ▒▓    ▒░                                     
+     ▓     ░░                                     
+     ░     ░░ */
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒▓▓▒░", jogadorPosicaoX, jogadorPosicaoY-54);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░████▓░", jogadorPosicaoX, jogadorPosicaoY-50);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒█████░", jogadorPosicaoX+2, jogadorPosicaoY-46);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░▒▓▒▓▒▓▒░", jogadorPosicaoX-2, jogadorPosicaoY-42);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░█  ▒▓█", jogadorPosicaoX-4, jogadorPosicaoY-38);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▓▒  ░ ░▓", jogadorPosicaoX-4, jogadorPosicaoY-34);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▓░  ░  ░▓", jogadorPosicaoX-4, jogadorPosicaoY-30);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("█▒  ▒█▓█", jogadorPosicaoX-4, jogadorPosicaoY-26);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒██▓▒  ░███▓▓▓░", jogadorPosicaoX-4, jogadorPosicaoY-22);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒▓▓▓▓▓██   ▒░", jogadorPosicaoX-12, jogadorPosicaoY-18);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("      ▓    ▒░", jogadorPosicaoX-6, jogadorPosicaoY-14);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒▓    ▒░", jogadorPosicaoX+2, jogadorPosicaoY-10);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▓     ░░", jogadorPosicaoX+2, jogadorPosicaoY-6);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░     ░░", jogadorPosicaoX+2, jogadorPosicaoY-2);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░░░░░", jogadorPosicaoX+2, jogadorPosicaoY);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#######################################################################################################################",0,7);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#####################################################################################################################S",0,500);
+
+                var direita = 10;
+
+                while(direita < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",695,direita);
+
+                    direita += 10;
+
+
+                }
+
+                var esquerda = 10;
+
+                while(esquerda < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",0,esquerda);
+
+                    esquerda += 10;
+
+
+                }
+
+                context.fillStyle = "blue";
+
+                context.font = "10px Arial";
+                context.fillText("___________________________________________________________________________________________________________________",19,471);
+
+
+
+
+                context.fillStyle = "brown";
+                context.font = "60px Arial";
+                context.fillText("|",673,462);
+
+                context.font = "60px Arial";
+                context.fillText("--",645,433);
+
+                context.fillStyle = "brown";
+                context.font = "40px Arial";
+                context.fillText("|",660,451);
+
+                context.fillStyle = "brown";
+                context.font = "60px Arial";
+                context.fillText("|",641,462);
+
+
+                context.fillStyle = 'white';
+                context.font = "20px Arial";
+                context.fillText("vida:", 10, 22);
+
+                /*
+
+
+                    ░▒▓██████▓▒░                   
+               ░▒████████████████▓▒░              
+            ▒█████████████████████████░           
+          ▓█████████████████████████████▒         
+        ▓█████████████████████████████████▓       
+      ▒█████████████████████████████████████░     
+     ▓███████████████████████████████████████▒     
+    ██████████████████████████████████████████▓   
+   ████████████████████████████████████████████▓   
+  ▓█████████████████████████████████████████████░ 
+  ███████████████████████████████████████████████  
+ ████████████████████████████████████████████████░ 
+░████████████████████████████████████████████████▓ 
+▓█████████████████████████████████████████████████ 
+██████████████████████████████████████████████████ 
+██████████████████████████████████████████████████
+██████████████████████████████████████████████████
+▓█████████████████████████████████████████████████
+ ████████████████████████████████████████████████▓
+ ▓███████████████████████████████████████████████░
+  ███████████████████████████████████████████████
+  ▒█████████████████████████████████████████████░ 
+   ████████████████████████████████████████████▒ 
+    ██████████████████████████████████████████▒  
+     ▓███████████████████████████████████████░   
+      ░█████████████████████████████████████      
+        ▒█████████████████████████████████▒      
+          ▒█████████████████████████████▒        
+            ░▓███████████████████████▓           
+                ░▒▓▓███████████▓▓▒                
+
+                                    */
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("░▒▓██████▓▒░", 180, 100);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("░▒████████████████▓▒░", 168, 104);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▒█████████████████████████░", 159, 108);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▓█████████████████████████████▒", 154, 112);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▓█████████████████████████████████▓", 148, 116);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▒█████████████████████████████████████░", 143, 120);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▓███████████████████████████████████████▒", 141, 124);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▓████████████████████████████████████████████░", 132, 128);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("██████████████████████████████████████████████", 132, 132);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("███████████████████████████████████████████████░", 130, 136);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("█████████████████████████████████████████████████", 128, 140);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("█████████████████████████████████████████████████", 128, 144);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("█████████████████████████████████████████████████", 128, 148);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("█████████████████████████████████████████████████", 128, 152);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("██████████████████████████████████████████████▓", 131, 156);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▓█████████████████████████████████████████████░", 131, 160);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("██████████████████████████████████████████████", 131, 164);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▒█████████████████████████████████████████████░", 131, 168);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("████████████████████████████████████████████▒", 135, 172);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("██████████████████████████████████████████▒", 137, 176);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▓███████████████████████████████████████░", 139, 180);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("░█████████████████████████████████████", 141, 184);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▒█████████████████████████████████▒", 143, 188);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("▒█████████████████████████████▒", 149, 192);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("░▓███████████████████████▓", 155, 196);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("░▒▓▓███████████▓▓▒", 169, 200);
+
+                context.fillStyle = 'white';
+                context.font = "4px Arial";
+                context.fillText("░▒▓██████▓▒░", 179, 204);
+
+
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 79, 104);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 659, 304);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 529, 196);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 489, 216);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 520, 104);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 179, 300);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 286, 104);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 497, 250);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 235, 134);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 459, 294);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 550, 80);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 345, 67);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 458, 35);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 247, 40);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 210, 56);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 398, 94);
+
+                context.fillStyle = 'white';
+                context.font = "10px Arial";
+                context.fillText("*", 500, 100);
+
+
+
+
+
+
+
+
+                if (vida == 3) {
+
+                	context.fillStyle = 'red';
+                context.font = "15px Arial";
+                context.fillText("&", 60, 22);
+
+                context.fillStyle = 'red';
+                context.font = "15px Arial";
+                context.fillText("&", 75, 22);
+
+                context.fillStyle = 'red';
+                context.font = "15px Arial";
+                context.fillText("&", 90, 22);
+
+
+
+                }
+
+                
+
+               if (vida == 2) {
+
+                context.fillStyle = 'red';
+                context.font = "15px Arial";
+                context.fillText("&", 60, 22);
+
+                context.fillStyle = 'red';
+                context.font = "15px Arial";
+                context.fillText("&", 75, 22);
+
+
+
+
+                }
+
+
+                if (vida == 1) {
+
+                	context.fillStyle = 'red';
+                context.font = "15px Arial";
+                context.fillText("&", 60, 22);
+
+
+                }
+
+                if (vida == 0) {
+
+                    zumbiFase1 = false;
+
+                	gameOver();
+
+
+
+                }
+
+
+
+                
+
+
+
+                        
+                if (golpe == true && duracaoEspada <= 15) {
+                posicaogolpex = jogadorPosicaoX + 25;
+                posicaogolpey = jogadorPosicaoY - 20;
+
+                duracaoEspada += 1;
+                context.fillStyle = 'gray';
+                context.font = "20px Arial";
+                context.fillText("-|=>", posicaogolpex, posicaogolpey);
+
+            }else{
+
+
+            	golpe = false;
+            }
+
+            /*
+
+              ░░░▒░      
+            ▒████▓█▓░    
+            ░▓▓ ░█░██    
+            ▓█▓▒▓▓▒██▒   
+             █▓▒▓▒█▒░░   
+              ░  ██      
+       ░░░░░▒  ░▒██      
+       ▒▓█▓▓██▒█▓  ▓▓    
+        ▒▒  ░░ ▒█░▒▓▒    
+               ░  ░▓░    
+               ░░▒░▓░    
+                ░ ▒▓     
+                █░▒▒     
+                ███▒     
+                 ██      
+                 ▒▓      
+                  █░     
+                  ▒█░    
+                   ██    
+                ▓▒▒░▒
+
+            */
+
+            
+
+            if (zumbiFase1 == true) {
+                if(zumbivida1 > 0){
+                
+                    if(indoZumbi >= 209 && indoZumbi <= 309 && volta == false){
+                    indoZumbi += velocidadeZumbi;
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░░░▒░",indoZumbi,410);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒████▓█▓░",indoZumbi - 4,414);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░▓▓ ░█░██",indoZumbi - 4,418);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▓█▓▒▓▓▒██▒",indoZumbi - 6,422);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("█▓▒▓▒█▒░░",indoZumbi,426);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░  ██",indoZumbi + 2,430);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░░░░░▒  ░▒██",indoZumbi - 18,434);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒▓█▓▓██▒█▓  ▓▓",indoZumbi - 18,438);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒▒  ░░ ▒█░▒▓▒",indoZumbi - 16,442);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░  ░▓░",indoZumbi + 4,446);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░░▒░▓░",indoZumbi,450);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░ ▒▓",indoZumbi+4,454);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("█░▒▒",indoZumbi+4,458);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("██",indoZumbi+6,462);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒▓",indoZumbi+6,466);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▓▒▒░▒",indoZumbi-2,470);
+                    
+        
+                    }
+
+                    else{
+                    volta = true;
+                    
+                    if(voltandoZumbi >= 209 && voltandoZumbi <= 309 && volta == true){
+                    voltandoZumbi -= velocidadeZumbi;
+                    
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░░░▒░",voltandoZumbi,410);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒████▓█▓░",voltandoZumbi - 4,414);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░▓▓ ░█░██",voltandoZumbi - 4,418);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▓█▓▒▓▓▒██▒",voltandoZumbi - 6,422);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("█▓▒▓▒█▒░░",voltandoZumbi,426);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░  ██",voltandoZumbi + 2,430);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░░░░░▒  ░▒██",voltandoZumbi - 18,434);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒▓█▓▓██▒█▓  ▓▓",voltandoZumbi - 18,438);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒▒  ░░ ▒█░▒▓▒",voltandoZumbi - 16,442);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░  ░▓░",voltandoZumbi +4 ,446);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░░▒░▓░",voltandoZumbi,450);
+
+                     context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("░ ▒▓",voltandoZumbi+4,454);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("█░▒▒",voltandoZumbi+4,458);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("██",voltandoZumbi+6,462);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▒▓",voltandoZumbi+6,466);
+
+                    context.fillStyle = "green";
+                    context.font = "4px Arial";
+                    context.fillText("▓▒▒░▒",voltandoZumbi-2,470);
+
+                    
+                    }
+                    else{
+                    volta = false;
+                    indoZumbi = 209;
+                    voltandoZumbi = 309;
+                    }
+                    }
+                
+                }else{
+
+                    context.fillStyle = "green";
+                    context.font = "70px Arial";
+                    context.fillText("+",259,470);
+
+                }
+            }
+
+
+            if (zumbiFase1 == true) {
+
+
+                if(zumbivida2 > 0){
+                
+                if(indoZumbi2 >= 409 && indoZumbi2 <= 509 && volta2 == false){
+                indoZumbi2 += velocidadeZumbi2;
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░░░▒░",indoZumbi2,410);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒████▓█▓░",indoZumbi2 - 4,414);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░▓▓ ░█░██",indoZumbi2 - 4,418);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▓█▓▒▓▓▒██▒",indoZumbi2 - 6,422);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("█▓▒▓▒█▒░░",indoZumbi2,426);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░  ██",indoZumbi2 + 2,430);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░░░░░▒  ░▒██",indoZumbi2 - 18,434);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒▓█▓▓██▒█▓  ▓▓",indoZumbi2 - 18,438);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒▒  ░░ ▒█░▒▓▒",indoZumbi2 - 16,442);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░  ░▓░",indoZumbi2 + 4,446);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░░▒░▓░",indoZumbi2,450);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░ ▒▓",indoZumbi2+4,454);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("█░▒▒",indoZumbi2+4,458);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("██",indoZumbi2+6,462);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒▓",indoZumbi2+6,466);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▓▒▒░▒",indoZumbi2-2,470);
+                
+    
+                }
+
+                else{
+                volta = true;
+                
+                if(voltandoZumbi2 >= 409 && voltandoZumbi2 <= 509 && volta == true){
+                voltandoZumbi2 -= velocidadeZumbi2;
+                
+
+                 context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░░░▒░",voltandoZumbi2,410);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒████▓█▓░",voltandoZumbi2 - 4,414);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░▓▓ ░█░██",voltandoZumbi2 - 4,418);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▓█▓▒▓▓▒██▒",voltandoZumbi2 - 6,422);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("█▓▒▓▒█▒░░",voltandoZumbi2,426);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░  ██",voltandoZumbi2 + 2,430);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░░░░░▒  ░▒██",voltandoZumbi2 - 18,434);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒▓█▓▓██▒█▓  ▓▓",voltandoZumbi2 - 18,438);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒▒  ░░ ▒█░▒▓▒",voltandoZumbi2 - 16,442);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░  ░▓░",voltandoZumbi2 +4 ,446);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░░▒░▓░",voltandoZumbi2,450);
+
+                 context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("░ ▒▓",voltandoZumbi2+4,454);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("█░▒▒",voltandoZumbi2+4,458);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("██",voltandoZumbi2+6,462);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▒▓",voltandoZumbi2+6,466);
+
+                context.fillStyle = "green";
+                context.font = "4px Arial";
+                context.fillText("▓▒▒░▒",voltandoZumbi2-2,470);
+                
+                }
+                else{
+                volta2 = false;
+                indoZumbi2 = 409;
+                voltandoZumbi2 = 509;
+                }
+                }
+
+
+
+                
+                }else{
+
+                    context.fillStyle = "green";
+                    context.font = "70px Arial";
+                    context.fillText("+",459,470);
+
+                }
+            }
+
+
+        if (zumbivida1 > 0) {
+
+                if((posicaogolpex+25 > voltandoZumbi && posicaogolpex+25 < indoZumbi + PersonagemLargura) && posicaogolpey >= canvas.height - PersonagemAltura)
+            {
+                zumbivida1 -= 1;
+            }
+
+
+
+            }
+
+         if (zumbivida2 > 0) {
+
+         if((posicaogolpex+25 > voltandoZumbi2 && posicaogolpex+25 < indoZumbi2 + PersonagemLargura) && posicaogolpey >= canvas.height - PersonagemAltura)
+            {
+                zumbivida2 -= 1;
+            }
+
+
+
+            }
+
+
+            //teste vida jogador
+
+        if (vida > 0) {
+
+        	/*console.log("posisaoX:" + jogadorPosicaoX);
+        	console.log("zumbiX:" + indoZumbi);
+        	console.log("PersonagemLargura:" + PersonagemLargura);
+        	console.log("posicaoY:" + jogadorPosicaoY);
+        	console.log("canvas:" + canvas.height);
+        	console.log("altura:" + PersonagemAltura);*/
+
+
+            if(zumbivida1 > 0){
+                	if((jogadorPosicaoX > indoZumbi && jogadorPosicaoX < voltandoZumbi + PersonagemLargura) && jogadorPosicaoY >= canvas.height - PersonagemAltura)
+                    {
+                        vida -= 1;
+                    }
+                }else{
+
+                    vida -= 0;
+                }
+
+            if(zumbivida2 > 0){
+                    if((jogadorPosicaoX > indoZumbi2 && jogadorPosicaoX < voltandoZumbi2 + PersonagemLargura) && jogadorPosicaoY >= canvas.height - PersonagemAltura)
+                    {
+                        vida -= 1;
+                    }
+                }else{
+
+                    vida -= 0;
+                }
+
+        }
+
+
+       if (jogadorPosicaoX >= 650) {
+
+                inicializarFase2();
+
+
+
+        }
+
+
+            
+                
+            }
+
+
+            function inicializarFase2(){
+
+                clearInterval(gameFps);
+                canvas = document.getElementById("canvas");
+                context = canvas.getContext("2d");
+
+                PersonagemAltura = 50;
+                PersonagemLargura = 50;
+                jogadorPosicaoX = 20;
+                jogadorPosicaoY = 470;
+                velocidadeJogador = 20;
+
+                gameFps = setInterval(gameLoopFase2, 30);
+
+            }
+
+
+    function gameLoopFase2(){
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#######################################################################################################################",0,7);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#####################################################################################################################S",0,500);
+
+                var direita = 10;
+
+                while(direita < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",695,direita);
+
+                    direita += 10;
+
+
+                }
+
+                var esquerda = 10;
+
+                while(esquerda < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",0,esquerda);
+
+                    esquerda += 10;
+
+
+                }
+
+                context.fillStyle = "blue";
+
+                context.font = "10px Arial";
+                context.fillText("___________________________________________________________________________________________________________________",19,471);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒▓▓▒░", jogadorPosicaoX, jogadorPosicaoY-54);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░████▓░", jogadorPosicaoX, jogadorPosicaoY-50);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒█████░", jogadorPosicaoX+2, jogadorPosicaoY-46);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░▒▓▒▓▒▓▒░", jogadorPosicaoX-2, jogadorPosicaoY-42);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░█  ▒▓█", jogadorPosicaoX-4, jogadorPosicaoY-38);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▓▒  ░ ░▓", jogadorPosicaoX-4, jogadorPosicaoY-34);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▓░  ░  ░▓", jogadorPosicaoX-4, jogadorPosicaoY-30);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("█▒  ▒█▓█", jogadorPosicaoX-4, jogadorPosicaoY-26);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒██▓▒  ░███▓▓▓░", jogadorPosicaoX-4, jogadorPosicaoY-22);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒▓▓▓▓▓██   ▒░", jogadorPosicaoX-12, jogadorPosicaoY-18);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("      ▓    ▒░", jogadorPosicaoX-6, jogadorPosicaoY-14);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▒▓    ▒░", jogadorPosicaoX+2, jogadorPosicaoY-10);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("▓     ░░", jogadorPosicaoX+2, jogadorPosicaoY-6);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░     ░░", jogadorPosicaoX+2, jogadorPosicaoY-2);
+
+                context.fillStyle = 'yellow';
+                context.font = "4px Arial";
+                context.fillText("░░░░░", jogadorPosicaoX+2, jogadorPosicaoY);
+
+
+
+                if (golpe == true && duracaoEspada <= 15) {
+                posicaogolpex = jogadorPosicaoX + 25;
+                posicaogolpey = jogadorPosicaoY - 20;
+
+                duracaoEspada += 1;
+                context.fillStyle = 'gray';
+                context.font = "20px Arial";
+                context.fillText("-|=>", posicaogolpex, posicaogolpey);
+
+            }else{
+
+
+                golpe = false;
+            }
+
+
+            /*
+
+                ▒▓▓▓▒                             
+              ▓████████                           
+             ███▓███████░                         
+            ░██████▓▒▓███▓                        
+            ▓█▒▓▓▓▓ ▒▓░▓▓██▒                      
+            ▒▒▒▓▓░▓▒█▓░░▒████▒                    
+        ░▒██▓▒▒█▒▒█▒▓▓░▒░█▓▓██▓▓▓▓▒               
+      ▒██████▒▒▓░▒▓░▒▓▒░▒█▓█████████▓             
+     ▓██▓▓█▓▓█▒▒▒▓▓▒░▒▒░▓███▓▓▓▓▓▓▓██             
+     ██▓▓▓█▓▓█▒░▒░▒▓▓░▒▒██▓▓▓▓▓▓▓▓▓██             
+    ░█▓▓▓▓██▓█▒░░▓▓▒░▒▒▓█▓▓▓▓▓▓▓▓▓▓█▓             
+     ██▓▓▓▓█▓▓█░░▒▓▒░▓███▓▓▓▓▓▓▓▓▓▓█▒             
+     ▒██▓▓▓██▓▓█▓▒░░▓█▓█▓▓▓▓▓▓▓▓▓▓▓██ *             
+      ▒██▓▓▓██▓▓██▓██▓██▓▓▓▓▓▓▓▓▓▓█▓█             
+       ▒█▓▓▓▓███▓▓██▓▓██▓▓▓▓▓▓▓▓▓█▓▓██▓▒          
+        █▓▓▓▓▓▓██████▓██▓▓▓▓▓▓▓▓█▓▓▓▓▓█████▓░     
+       ▓█▓▓▓▓▓██ ░▒▒▒███▓▓▓▓▓▓▓▓█▓▓▓▓█▓▓▓████▒    
+      ░██▓▓▓▓██▒      ░▒██▓▓▓▓▓▓█▓▓██▓▓▓▓▓▓▓█▓    
+      ██▓▓▓▓█▓          ████▓▓▓▓▓█▓▓██▓▓▓▓▓▓█▓    
+      ██▓▓▓▓█▓         ██▓██▓▓▓▓▓▓█▓▓██▓▓▓▓▓█▓    
+      ▓████████       ██▓▓█████████▓▓▓██▓▓███▒    
+      ░█▓▓█▓▒▒▒▓     ▓█████▓█▓▒▓▒▒█▓▓▓█▓████▓     
+       ▓░░░░░▒▒▒▓    ▒█▒▓▓▓░░░░░░░▓███▓▓▓▒██      
+       ▓░░░░░░▓▓█    ▓▒▒▒░▓░▒▒▒▒▒░▒██▓░▒░░▓▒      
+       ▓▓█▓▓▓▓▓▓██▓▓▓█▒█▒█▓░▒▒▒▒▒░▓▓░▓█▒██▓▒ 
+
+
+            */
+
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText("▒▓▓▓▒", 400, 300);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText("▓████████", 400 - 8, 305);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText("███▓███████░", 400 - 12, 310);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText("░██████▓▒▓███▓", 400 - 16, 315);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText("▓█▒▓▓▓▓ ▒▓░▓▓██▒", 400 - 16, 320);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText("▒▒▒▓▓░▓▒█▓░░▒████▒", 400 - 16, 325);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText(" ░▒██▓▒▒█▒▒█▒▓▓░▒░█▓▓██▓▓▓▓▒", 400 - 23, 330);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText(" ▒██████▒▒▓░▒▓░▒▓▒░▒█▓█████████▓", 400 - 27, 335);
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText(" ▓██▓▓█▓▓█▒▒▒▓▓▒░▒▒░▓███▓▓▓▓▓▓▓██", 400 - 30, 340);
+
+
+            context.fillStyle = 'green';
+            context.font = "5px Arial";
+            context.fillText(" ██▓▓▓▓█▓▓█░░▒▓▒░▓███▓▓▓▓▓▓▓▓▓▓█▒", 400 - 27, 345);
+
+
+    }
+
+
+    function gameOver(){
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+                   clearInterval(gameFps);
+                canvas = document.getElementById("canvas");
+                context = canvas.getContext("2d");
+
+                PersonagemAltura = 50;
+                PersonagemLargura = 50;
+                jogadorPosicaoX = 20;
+                jogadorPosicaoY = 470;
+                velocidadeJogador = 20;
+
+                context.font = "40px Arial";
+                context.fillStyle = 'red';
+                context.fillText("Game Over", 195, 250);
+
+                 context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#######################################################################################################################",0,7);
+
+                context.fillStyle = "green";
+                context.font = "10px Arial";
+                context.fillText("#####################################################################################################################S",0,500);
+
+                var direita = 10;
+
+                while(direita < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",695,direita);
+
+                    direita += 10;
+
+
+                }
+
+                var esquerda = 10;
+
+                while(esquerda < 500){
+
+                    context.font = "10px Arial";
+                    context.fillText("#",0,esquerda);
+
+                    esquerda += 10;
+
+
+                }
+
+                gameover = true;
+
+                document.addEventListener('keydown', keyGameOver);
+
+
+    }
+            
+    function keyGameOver(e){
+
+            if (gameover == true) {
+
+            if (e.keyCode == 13) {
+
+                menuInicio();
+
+            }
+
+        }
+
+
+    }
+
+
+
+
+        </script>
+        
+    </body>
+</html>
